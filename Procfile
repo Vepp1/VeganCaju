@@ -1,0 +1,1 @@
+web: gunicorn vegancaju.wsgi
