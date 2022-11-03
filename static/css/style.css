@@ -3031,13 +3031,13 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #ee0979;
-  border-color: #ee0979;
+  background-color: #ca0867;
+  border: 2px solid rgb(0, 0, 0);
 }
 .btn-primary:hover {
-  color: #fff;
-  background-color: #ca0867;
-  border-color: #be0761;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+  border: 2px solid rgb(255, 255, 255);
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -11322,7 +11322,7 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
+  background-image: url(../assets/pexels-paloma-clarice-9285194.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
@@ -11333,9 +11333,11 @@ header.masthead .masthead-content {
   position: relative;
 }
 header.masthead .masthead-content .masthead-heading {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 4rem;
 }
 header.masthead .masthead-content .masthead-subheading {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 2rem;
 }
 header.masthead .bg-circle {
