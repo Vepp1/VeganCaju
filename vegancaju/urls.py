@@ -19,5 +19,5 @@ from order import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+    path('', include('order.urls'), name='order-urls'),
 ]
