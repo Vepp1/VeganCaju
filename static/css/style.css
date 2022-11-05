@@ -7492,7 +7492,7 @@ textarea.form-control-lg {
 }
 
 .py-5 {
-  padding-top: 3rem !important;
+  padding-top: 5rem !important;
   padding-bottom: 3rem !important;
 }
 
@@ -11317,12 +11317,20 @@ html {
   letter-spacing: 0.1rem;
 }
 
+.bckd {
+  background-image: url(../assets/pexels-paloma-clarice-9285194.jpg);
+}
+
+.order-heading {
+  color:#000;
+  border: 1px solid white;
+}
+
 header.masthead {
   position: relative;
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background-image: url(../assets/pexels-paloma-clarice-9285194.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;

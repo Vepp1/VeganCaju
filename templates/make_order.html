@@ -2,20 +2,49 @@
 
 {% block content %}
 {% load static %}
-        <!-- Content section 1-->
-        <section id="scroll">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
-                            <h2 class="display-4">About us...</h2>
-                            <p>VeganCaju is a vegan truffle store. Created with the goal to provide a quality chocolate to our customers, without the need to harm animals.
-                                Thr truffles are 100% vegan and handmade, made out cocconut milk. All prepared with all the love and care in the world.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<header class="masthead text-center text-white">
+  <div class="masthead-content">
+    <div class="container px-5">
+      <h2 class="masthead-subheading mb-0 order-heading"><u>Build your box!</u></h2>
+    </div>
+  </div>
 
-{% endblock %}    
+</header>
+
+<form>
+  <div class="container">
+    <div class="row">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Choose the box size</label>
+        <select type="email" class="form-select" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+          <option value="" disabled selected>Choose Size</option>
+          <option value="0">Small</option>
+          <option value="1">Medium</option>
+          <option value="2">Large</option>
+        </select>
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <select type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+          <option value="" disabled selected>Choose Flavor</option>
+          <option value="0">Chocolate</option>
+          <option value="1">Cocconut</option>
+          <option value="2">White Chocolate</option>
+          <option value="2">Peanut</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="startDate">Start</label>
+        <input id="startDate" class="form-control" type="date" />
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
+{% endblock %}
