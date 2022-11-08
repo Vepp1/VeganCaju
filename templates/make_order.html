@@ -1,50 +1,53 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% load static %}
 <header class="masthead text-center text-white">
-  <div class="masthead-content">
-    <div class="container px-5">
-      <h2 class="masthead-subheading mb-0 order-heading"><u>Build your box!</u></h2>
-    </div>
+  <h1 class="display-2 text-dark">Build your order</h1>
+  <div class="row align-content-center">
+    <form class="col-sm-10 mt-5 offset-1" method="POST">
+      {% csrf_token %}
+      <div class="row">
+        <div class="mb-3">
+          <label for="size" class=".col-form-label-lg text-dark">Choose Size:</label>
+          <select name="size" class="form-control" id="size" required>
+            <option value="" disabled selected>Choose Size</option>
+            <option value="0">Small</option>
+            <option value="1">Medium</option>
+            <option value="2">Large</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3">
+          <label for="flavor" class=".col-form-label-lg text-dark">Choose pick-up:</label>
+          <select name="flavor" class="form-control" id="flavor" required>
+            <option value="" disabled selected>Choose Flavor</option>
+            <option value="0">Chocolate</option>
+            <option value="1">Cocconut</option>
+            <option value="2">White Chocolate</option>
+            <option value="2">Peanut</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-3">
+          <label for="pickup" class=".col-form-label-lg text-dark">Choose pick-up:</label>
+          <input name="pickup" id="pickup" class="form-control" type="date" />
+        </div>
+      </div>
+
+
+
+
+      <button type="submit" class="btn btn-primary">Make Order</button>
+
   </div>
+  </form>
+  </div>
+
+
 
 </header>
-
-<form>
-  <div class="container">
-    <div class="row">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Choose the box size</label>
-        <select type="email" class="form-select" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-          <option value="" disabled selected>Choose Size</option>
-          <option value="0">Small</option>
-          <option value="1">Medium</option>
-          <option value="2">Large</option>
-        </select>
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      </div>
-      <div class="mb-3">
-        <select type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-          <option value="" disabled selected>Choose Flavor</option>
-          <option value="0">Chocolate</option>
-          <option value="1">Cocconut</option>
-          <option value="2">White Chocolate</option>
-          <option value="2">Peanut</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="startDate">Start</label>
-        <input id="startDate" class="form-control" type="date" />
-      </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-    </div>
-  </div>
-</form>
-
-
-
 {% endblock %}

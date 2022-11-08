@@ -596,7 +596,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "— ";
+  content: "— ";
 }
 
 .img-fluid {
@@ -3031,13 +3031,13 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #ca0867;
-  border: 2px solid rgb(0, 0, 0);
+  background-color: #ee0979;
+  border-color: #ee0979;
 }
 .btn-primary:hover {
-  color: rgb(0, 0, 0);
-  background-color: #ffffff;
-  border: 2px solid rgb(255, 255, 255);
+  color: #fff;
+  background-color: #ca0867;
+  border-color: #be0761;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -7492,7 +7492,7 @@ textarea.form-control-lg {
 }
 
 .py-5 {
-  padding-top: 5rem !important;
+  padding-top: 3rem !important;
   padding-bottom: 3rem !important;
 }
 
@@ -11317,15 +11317,6 @@ html {
   letter-spacing: 0.1rem;
 }
 
-.bckd {
-  background-image: url(../assets/pexels-paloma-clarice-9285194.jpg);
-}
-
-.order-heading {
-  color:#000;
-  border: 1px solid white;
-}
-
 header.masthead {
   position: relative;
   overflow: hidden;
@@ -11341,11 +11332,9 @@ header.masthead .masthead-content {
   position: relative;
 }
 header.masthead .masthead-content .masthead-heading {
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 4rem;
 }
 header.masthead .masthead-content .masthead-subheading {
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 2rem;
 }
 header.masthead .bg-circle {
@@ -11390,4 +11379,11 @@ header.masthead .bg-circle-4 {
   header.masthead .masthead-content .masthead-subheading {
     font-size: 4rem;
   }
+}
+
+
+/* custom css */
+
+.bkgd {
+  background-image: url(../assets/img/pexels-paloma-clarice-9285194.jpg);
 }
