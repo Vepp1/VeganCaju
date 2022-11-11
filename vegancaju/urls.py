@@ -20,4 +20,5 @@ from order import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('order.urls'), name='order-urls'),
+    path('accounts/', include('allauth.urls')),
 ]
