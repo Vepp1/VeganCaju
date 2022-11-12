@@ -11387,3 +11387,10 @@ header.masthead .bg-circle-4 {
 .bkgd {
   background-image: url(../assets/img/pexels-paloma-clarice-9285194.jpg);
 }
+
+.black-border {
+  text-shadow: -1px 1px 0 #000,
+  1px 1px 0 #000,
+ 1px -1px 0 #000,
+-1px -1px 0 #000;
+}
