@@ -11,7 +11,7 @@ SIZES = ((0, 'Small - 4 un.'), (1, 'Medium - 6 un.'), (2, 'Large - 10 un.'))
 class Order(models.Model):
     flavor = models.IntegerField(choices=FLAVORS, default=0)
     size = models.IntegerField(choices=SIZES, default=0)
-    costumer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='costumer')
+    costumer = models.CharField(max_length=80)
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
     pick_up = models.DateTimeField()
