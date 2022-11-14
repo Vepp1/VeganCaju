@@ -1,5 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User
+
 
 STATUS = ((0, 'Waiting for Approval'), (1, 'Approved'), (2, 'Cancelled'))
 FLAVORS = ((0, 'Chocolate'), (1, 'Cocconut'), (2, 'White Chocolate'), (3, 'Pistach'), (4, 'Peanut'))
@@ -9,7 +11,7 @@ SIZES = ((0, 'Small - 4 un.'), (1, 'Medium - 6 un.'), (2, 'Large - 10 un.'))
 class Order(models.Model):
     flavor = models.IntegerField(choices=FLAVORS, default=0)
     size = models.IntegerField(choices=SIZES, default=0)
-    # user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
+    costumer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='costumer')
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
     pick_up = models.DateTimeField()
