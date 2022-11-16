@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<header class="masthead text-center text-white">
+    <div class="row">
+    {% for order in queryset %}
+    <div class="card text-dark offset-1 col-3" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Order ID: {{ order.id }}</h5>
+          <p class="card-text">Size: {{ order.get_size_display }}</p>
+          <p class="card-text">Flavor: {{ order.get_flavor_display }}</p>
+          <p class="card-text">Created on: {{ order.created_on }}</p>
+          <p class="card-text">Status: {{ order.get_status_display }}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+</header>
+{% endblock %}

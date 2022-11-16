@@ -32,3 +32,16 @@ class MakeOrder(View):
             }
         )
 
+
+class ViewOrder(View):
+
+    def get(self, request, *args, **kwargs):
+        costumer = request.user.username
+        queryset = Order.objects.filter(costumer=costumer)
+
+        return render(
+            request,
+            "my_orders.html", {'queryset': queryset}
+        )
+
+    
