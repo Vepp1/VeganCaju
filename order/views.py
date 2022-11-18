@@ -54,7 +54,7 @@ class EditOrder(View):
 
         return render(
             request,
-            "edit_order.html", {"order_form": OrderForm(),
+            "edit_order.html", {"order_form": OrderForm(instance=order),
             "order": order}
         )
 
@@ -67,11 +67,10 @@ class EditOrder(View):
             order.size = order_form.cleaned_data['size']
             order.flavor = order_form.cleaned_data['flavor']
             order.pick_up = order_form.cleaned_data['pick_up']
-            order.save()
-            return redirect('my_orders')
-            
             orderform = order_form.save(commit=False)
             orderform.save()
+            order.save()
+            return redirect('my_orders')
         else:
             order_form = OrderForm()
 
