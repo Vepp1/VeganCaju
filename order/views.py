@@ -81,3 +81,14 @@ class EditOrder(View):
                 "order_form": OrderForm()
             }
         )
+
+
+class DeleteOrder(View):
+
+    def get(self, request, id, *args, **kwargs):
+        costumer = request.user.username
+        queryset = Order.objects.filter(costumer=costumer)
+        order = get_object_or_404(queryset, id=id)
+        order.delete()
+        
+        return redirect('my_orders')
