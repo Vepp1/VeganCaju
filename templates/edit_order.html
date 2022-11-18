@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<header class="masthead text-center text-white">
+  <h1 class="display-2 text-dark">Edit your order</h1>
+  <div class="row align-content-center">
+    <form class="col-sm-10 mt-5 offset-1" method="post">
+      {{ order_form | crispy }}
+      {% csrf_token %}
+
+      <br>
+      <button type="submit" class="btn btn-primary">Edit Order</button>
+
+  </div>
+  </form>
+  </div>
+
+
+
+</header>
+{% endblock %}

@@ -5,16 +5,19 @@
 <header class="masthead text-center text-white">
     <div class="row">
     {% for order in queryset %}
-    <div class="card text-dark offset-1 col-3" style="width: 18rem;">
+    <div class="card text-dark offset-1 col-4" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">Order ID: {{ order.id }}</h5>
           <p class="card-text">Size: {{ order.get_size_display }}</p>
           <p class="card-text">Flavor: {{ order.get_flavor_display }}</p>
           <p class="card-text">Created on: {{ order.created_on }}</p>
           <p class="card-text">Status: {{ order.get_status_display }}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="{% url 'edit_order' order.id %}" class="btn btn-warning">Edit Order</a>
+          <a href="#" class="btn btn-danger">Delete order</a>
+
         </div>
       </div>
+      <br>
     {% endfor %}
     </div>
 </header>
