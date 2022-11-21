@@ -2,10 +2,14 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<header class="masthead text-center text-white">
-  <h1 class="display-2 text-dark">Build your order</h1>
+<div class="masthead text-center text-white">
   <div class="row align-content-center">
-    <form class="col-sm-10 mt-5 offset-1" method="post">
+    <div class="col-12 col-lg-4 offset-lg-1">
+      <img class="img-fluid" src="https://images.pexels.com/photos/10390457/pexels-photo-10390457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="..." />
+    </div>
+
+    <form class="col-lg-6 col-12 mt-2 ms-lg-5" method="post">
+      <h1 class="display-2 text-dark">Build your order</h1>
       {{ order_form | crispy }}
       {% csrf_token %}
 
@@ -18,5 +22,5 @@
 
 
 
-</header>
+</div>
 {% endblock %}
