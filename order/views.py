@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from .models import Order
 from .forms import OrderForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     return render(request, 'index.html')
 
-class MakeOrder(View):
+class MakeOrder(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         return render(request, 'make_order.html', {
@@ -33,7 +34,7 @@ class MakeOrder(View):
         )
 
 
-class ViewOrder(View):
+class ViewOrder(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         costumer = request.user.username
@@ -45,7 +46,7 @@ class ViewOrder(View):
         )
 
     
-class EditOrder(View):
+class EditOrder(LoginRequiredMixin, View):
 
     def get(self, request, id, *args, **kwargs):
         costumer = request.user.username
@@ -83,7 +84,7 @@ class EditOrder(View):
         )
 
 
-class DeleteOrder(View):
+class DeleteOrder(LoginRequiredMixin, View):
 
     def get(self, request, id, *args, **kwargs):
         costumer = request.user.username
