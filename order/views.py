@@ -34,16 +34,14 @@ class MakeOrder(LoginRequiredMixin, View):
         )
 
 
-class ListOrder(LoginRequiredMixin, View):
+class OrderList(generic.ListView, LoginRequiredMixin):
+        model = Order
+        template_name = "my_orders.html"
+        paginate_by = 3
 
-    def get(self, request, *args, **kwargs):
-        costumer = request.user.username
-        queryset = Order.objects.filter(costumer=costumer)
-
-        return render(
-            request,
-            "my_orders.html", {'queryset': queryset}
-        )
+        def get_queryset(self):
+            return Order.objects.filter(costumer=self.request.user.username)
+    
 
     
 class EditOrder(LoginRequiredMixin, View):
@@ -93,3 +91,5 @@ class DeleteOrder(LoginRequiredMixin, View):
         order.delete()
         
         return redirect('my_orders')
+
+
