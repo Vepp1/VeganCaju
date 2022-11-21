@@ -33,9 +33,12 @@ class MakeOrder(LoginRequiredMixin, View):
             }
         )
 
-def get_user_order(request):
-    costumer = request.user.username
-    return Order.objects.filter(costumer=costumer)
+
+class GetOrder():
+    def get_user_order(self, request, id):
+        costumer = request.user.username
+        queryset =  Order.objects.filter(costumer=costumer)
+        return get_object_or_404(queryset, id=id)
 
 
 class OrderList(generic.ListView, LoginRequiredMixin):
@@ -48,11 +51,10 @@ class OrderList(generic.ListView, LoginRequiredMixin):
     
 
     
-class EditOrder(LoginRequiredMixin, View):
+class EditOrder(LoginRequiredMixin, GetOrder, View):
 
     def get(self, request, id, *args, **kwargs):
-        queryset = get_user_order(request)
-        order = get_object_or_404(queryset, id=id)
+        order = self.get_user_order(request, id)
 
         return render(
             request,
@@ -61,9 +63,7 @@ class EditOrder(LoginRequiredMixin, View):
         )
 
     def post(self, request, id, *args, **kwargs):
-        order_form = OrderForm(data=request.POST)
-        queryset = get_user_order(request)
-        order = get_object_or_404(queryset, id=id)
+        order = self.get_user_order(request, id)
         if order_form.is_valid():
             order.size = order_form.cleaned_data['size']
             order.flavor = order_form.cleaned_data['flavor']
@@ -84,11 +84,10 @@ class EditOrder(LoginRequiredMixin, View):
         )
 
 
-class DeleteOrder(LoginRequiredMixin, View):
+class DeleteOrder(LoginRequiredMixin, GetOrder, View):
 
     def get(self, request, id, *args, **kwargs):
-        queryset = get_user_order(request)
-        order = get_object_or_404(queryset, id=id)
+        order = self.get_user_order(request, id)
         order.delete()
         
         return redirect('my_orders')
