@@ -12,8 +12,14 @@
           <p class="card-text">Flavor: {{ order.get_flavor_display }}</p>
           <p class="card-text">Created on: {{ order.created_on }}</p>
           <p class="card-text">Status: {{ order.get_status_display }}</p>
+
+          {% if order.status == 0 %}
           <a href="{% url 'edit_order' order.id %}" class="btn btn-warning">Edit Order</a>
           <a href="{% url 'delete_order' order.id %}" class="btn btn-danger">Delete order</a>
+          {% else %}
+          <strong>Order Approved!</strong>
+          {% endif %}
+
 
         </div>
       </div>

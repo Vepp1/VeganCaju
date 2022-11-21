@@ -34,7 +34,7 @@ class MakeOrder(LoginRequiredMixin, View):
         )
 
 
-class ViewOrder(LoginRequiredMixin, View):
+class ListOrder(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         costumer = request.user.username
