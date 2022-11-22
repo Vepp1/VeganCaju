@@ -55,25 +55,25 @@ class EditOrder(LoginRequiredMixin, GetOrder, View):
 
     def get(self, request, id, *args, **kwargs):
         order = self.get_user_order(request, id)
-
-        return render(
-            request,
-            "edit_order.html", {"order_form": OrderForm(instance=order),
+        if order.status == 0:
+            return render(request, "edit_order.html", {"order_form": OrderForm(instance=order),
             "order": order}
         )
 
     def post(self, request, id, *args, **kwargs):
         order = self.get_user_order(request, id)
-        if order_form.is_valid():
-            order.size = order_form.cleaned_data['size']
-            order.flavor = order_form.cleaned_data['flavor']
-            order.pick_up = order_form.cleaned_data['pick_up']
-            orderform = order_form.save(commit=False)
-            orderform.save()
-            order.save()
-            return redirect('my_orders')
-        else:
-            order_form = OrderForm()
+        if order.status == 0:
+            if order_form.is_valid():
+                order.size = order_form.cleaned_data['size']
+                order.flavor = order_form.cleaned_data['flavor']
+                order.pick_up = order_form.cleaned_data['pick_up']
+                orderform = order_form.save(commit=False)
+                orderform.save()
+                order.save()
+                return redirect('my_orders')
+            else:
+                order_form = OrderForm()
+        
 
         return render(
             request,
@@ -88,7 +88,9 @@ class DeleteOrder(LoginRequiredMixin, GetOrder, View):
 
     def get(self, request, id, *args, **kwargs):
         order = self.get_user_order(request, id)
-        order.delete()
+        if order.status == 0:
+            order.delete()
+
         
         return redirect('my_orders')
 
