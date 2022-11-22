@@ -3,47 +3,70 @@
 
 {% block content %}
 <header class="masthead text-center text-white">
-    <div class="row">
+  <div class="row">
     {% if order_list %}
     {% for order in order_list %}
     <div class="card text-dark offset-lg-1 offset-2 col-4 mt-2 mt-lg-0 mb-lg-2" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Order ID: {{ order.id }}</h5>
-          <p class="card-text">Size: {{ order.get_size_display }}</p>
-          <p class="card-text">Flavor: {{ order.get_flavor_display }}</p>
-          <p class="card-text">Created on: {{ order.created_on }}</p>
-          <p class="card-text">Status: {{ order.get_status_display }}</p>
+      <div class="card-body">
+        <h5 class="card-title">Order ID: {{ order.id }}</h5>
+        <p class="card-text">Size: {{ order.get_size_display }}</p>
+        <p class="card-text">Flavor: {{ order.get_flavor_display }}</p>
+        <p class="card-text">Created on: {{ order.created_on }}</p>
+        <p class="card-text">Status: {{ order.get_status_display }}</p>
 
-          {% if order.status == 0 %}
-          <a href="{% url 'edit_order' order.id %}" class="btn btn-warning">Edit Order</a>
-          <a href="{% url 'delete_order' order.id %}" class="btn btn-danger">Delete order</a>
+        {% if order.status == 0 %}
+        <a href="{% url 'edit_order' order.id %}" type="button" class="btn btn-warning">Edit Order</a>
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{ order.id }}">Delete order</a>
 
           {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center mt-5">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center mt-5">
+              {% if page_obj.has_previous %}
+              <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+              {% endif %}
+              {% if page_obj.has_next %}
+              <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+              {% endif %}
+            </ul>
+          </nav>
+          {% endif %}
           {% else %}
           <strong>Order Approved!</strong>
           {% endif %}
 
 
+      </div>
+    </div>
+    <br>
+
+    <div class="modal fade text-dark" id="exampleModal{{ order.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete order? It cannot be undone.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a href="{% url 'delete_order' order.id %}" class="btn btn-danger">Delete order</a>
+          </div>
         </div>
       </div>
-      <br>
-    {% endfor %}
     </div>
-    {% else %}
-    <h1 class="text-dark col-12">You have no orders!</h1>
-    {% endif %}
+    
+    {% endfor %}
+  </div>
+  {% else %}
+  <h1 class="text-dark col-12">You have no orders!</h1>
+  {% endif %}
 
 </header>
+
+<!-- Modal -->
+
+
 {% endblock %}
