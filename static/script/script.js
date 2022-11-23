@@ -1,9 +1,6 @@
 $(document).ready(function () {
-    
-  
 
-
-    $('loader').fadeOut('slow')
+    $('.loader').hide()
 
 
 });
