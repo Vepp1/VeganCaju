@@ -62,6 +62,7 @@ class EditOrder(LoginRequiredMixin, GetOrder, View):
 
     def post(self, request, id, *args, **kwargs):
         order = self.get_user_order(request, id)
+        order_form = OrderForm(data=request.POST)
         if order.status == 0:
             if order_form.is_valid():
                 order.size = order_form.cleaned_data['size']
@@ -69,7 +70,6 @@ class EditOrder(LoginRequiredMixin, GetOrder, View):
                 order.pick_up = order_form.cleaned_data['pick_up']
                 orderform = order_form.save(commit=False)
                 orderform.save()
-                order.save()
                 return redirect('my_orders')
             else:
                 order_form = OrderForm()

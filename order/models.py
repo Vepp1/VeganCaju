@@ -12,7 +12,6 @@ class Order(models.Model):
     flavor = models.IntegerField(choices=FLAVORS, default=0)
     size = models.IntegerField(choices=SIZES, default=0)
     costumer = models.CharField(max_length=80)
-    updated_on = models.DateTimeField(auto_now_add=False, auto_now=False, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     pick_up = models.DateTimeField()
     status = models.IntegerField(choices=STATUS, default=0)
