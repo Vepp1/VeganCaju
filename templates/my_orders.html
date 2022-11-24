@@ -11,24 +11,26 @@
     <div class="card text-dark offset-lg-1 offset-2 col-4 mt-2 mt-lg-0 mb-lg-2" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">Order ID: {{ order.id }}</h5>
-        <p class="card-text">Size: {{ order.get_size_display }}</p>
-        <p class="card-text">Flavor: {{ order.get_flavor_display }}</p>
-        <p class="card-text">Created on: {{ order.created_on }}</p>
-        <p class="card-text">Status: {{ order.get_status_display }}</p>
-
+        <p class="card-text"><strong>Size:</strong> {{ order.get_size_display }}</p>
+        <p class="card-text"><strong>Flavor:</strong>: {{ order.get_flavor_display }}</p>
+        <p class="card-text"><strong>Created on:</strong> {{ order.created_on }}</p>
         {% if order.status == 0 %}
+        <p class="card-text"><strong>Status:</strong> {{ order.get_status_display }}</p>
         <a href="{% url 'edit_order' order.id %}" class="btn btn-warning">Edit Order</a>
-        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{ order.id }}">Delete order</a>
-        {% else %}
-        <strong>Order Approved!</strong>
-        {% endif %}
+        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{ order.id }}">Delete
+          order</a>
+          {% elif order.status == 1 %}
+          <strong class="btn-success">Order Approved!</strong>
+          {% else %}
+          <strong class="btn-danger">Order Declined!</strong>
+          {% endif %}
 
 
       </div>
     </div>
     <br>
-    
-    
+
+
     <div class="modal fade text-dark" id="exampleModal{{ order.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog">
