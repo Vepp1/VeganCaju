@@ -7,6 +7,7 @@
   <div class="bg bg2"></div>
   <div class="bg bg3"></div>
   <div class="row">
+   {% if order_list %} 
     {% for order in order_list %}
     <div class="card text-dark offset-lg-1 offset-2 col-4 mt-2 mt-lg-0 mb-lg-2" style="width: 18rem;">
       <div class="card-body">
@@ -66,6 +67,15 @@
     </ul>
   </nav>
   {% endif %}
+  {% else %}
+  <div class="row">
+    <div class="col-12">
+      <h2 class="display-2 text-white black-border">You have no orders yet!</h2>
+      <a href="{% url 'make_order' %}" class="btn btn-primary mt-5 col-8 col-md-3">Order Now!</a>
+    </div>
+  </div>
+  
+{% endif %}
 </header>
 
 <!-- Modal -->
