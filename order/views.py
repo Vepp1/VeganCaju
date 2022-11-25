@@ -110,6 +110,8 @@ class DeleteOrder(LoginRequiredMixin, GetOrder, View):
         if order.status == 0:
             order.delete()
             messages.add_message(request, messages.SUCCESS, "Order Deleted!")
+        else:
+            return render(request, "404.html")
         
         return redirect('my_orders')
 
