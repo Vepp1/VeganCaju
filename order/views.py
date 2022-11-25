@@ -8,6 +8,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def index(request):
     return render(request, 'index.html')
 
+def error_page(request):
+    return render(request, '404.html')
+
 class MakeOrder(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
@@ -70,12 +73,13 @@ class EditOrder(LoginRequiredMixin, GetOrder, View):
             return render(request, "edit_order.html", {"order_form": OrderForm(instance=order),
             "order": order}
         )
+        else:
+            return render(request, "404.html")
 
     def post(self, request, id, *args, **kwargs):
         order = self.get_user_order(request, id)
         order_form = OrderForm(data=request.POST)
-        if order.status == 0:
-            if order_form.is_valid():
+        if order_form.is_valid():
                 order.size = order_form.cleaned_data['size']
                 order.flavor = order_form.cleaned_data['flavor']
                 order.pick_up = order_form.cleaned_data['pick_up']
@@ -84,9 +88,10 @@ class EditOrder(LoginRequiredMixin, GetOrder, View):
                 order.save()
                 messages.add_message(request, messages.SUCCESS, "Order Updated!")
                 return redirect('my_orders')
-            else:
+        else:
                 order_form = OrderForm()
                 messages.add_message(request, messages.ERROR, "Please, choose at date at least 3 days from now")
+        
         
 
         return render(
@@ -104,7 +109,7 @@ class DeleteOrder(LoginRequiredMixin, GetOrder, View):
         order = self.get_user_order(request, id)
         if order.status == 0:
             order.delete()
-
+            messages.add_message(request, messages.SUCCESS, "Order Deleted!")
         
         return redirect('my_orders')
 
