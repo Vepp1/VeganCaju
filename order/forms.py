@@ -11,5 +11,5 @@ class OrderForm(forms.ModelForm):
         model = Order
         fields = ('size', 'flavor', 'pick_up')
         widgets = {
-            'pick_up': DateInput(),
+            'pick_up': DateInput(format='%d-%Y-%m'),
         }

@@ -15,6 +15,7 @@
         <p class="card-text"><strong>Size:</strong> {{ order.get_size_display }}</p>
         <p class="card-text"><strong>Flavor:</strong>: {{ order.get_flavor_display }}</p>
         <p class="card-text"><strong>Created on:</strong> {{ order.created_on }}</p>
+        <p class="card-text"><strong>Pick-up on:</strong> {{ order.pick_up }}</p>
         {% if order.status == 0 %}
         <p class="card-text"><strong>Status:</strong> {{ order.get_status_display }}</p>
         <a href="{% url 'edit_order' order.id %}" class="btn btn-warning">Edit Order</a>
