@@ -85,7 +85,8 @@
             <div id="map" class="col-10 offset-1"></div>
         </div>
         <div class="container my-5">
-            <p class="m-0 text-center text-white small">Copyright &copy; Fake Website, for study purpouses only. 2022</p>
+            <p class="m-0 text-center text-white small">Copyright &copy; Fake Website, for study purpouses only. 2022
+            </p>
         </div>
     </footer>
 
@@ -99,7 +100,13 @@
 
 
 
-
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById("msg");
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 3000);
+    </script>
 
 
 </body>

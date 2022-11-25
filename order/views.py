@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
+from django.contrib import messages
 from .models import Order
 from .forms import OrderForm
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -22,16 +23,26 @@ class MakeOrder(LoginRequiredMixin, View):
             order_form.instance.costumer = request.user.username
             order = order_form.save(commit=False)
             order.save()
-        else:
-            order_form = OrderForm()
-
-        return render(
+            messages.add_message(request, messages.SUCCESS, "Order complete")
+            return render(
             request,
             "index.html",
             {
                 "order_form": OrderForm()
             }
         )
+        else:
+            order_form = OrderForm()
+            messages.add_message(request, messages.ERROR, "Please, choose at date at least 3 days from now")
+            return render(
+            request,
+            "make_order.html",
+            {
+                "order_form": OrderForm()
+            }
+        )
+
+        
 
 
 class GetOrder():
@@ -71,13 +82,15 @@ class EditOrder(LoginRequiredMixin, GetOrder, View):
                 orderform = order_form.save(commit=False)
                 orderform.save()
                 return redirect('my_orders')
+                messages.add_message(request, messages.SUCCES, "Order Updated!")
             else:
                 order_form = OrderForm()
+                messages.add_message(request, messages.ERROR, "Please, choose at date at least 3 days from now")
         
 
         return render(
             request,
-            "index.html",
+            "edit_order.html",
             {
                 "order_form": OrderForm()
             }

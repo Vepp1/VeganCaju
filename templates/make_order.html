@@ -3,9 +3,24 @@
 
 {% block content %}
 <div class="masthead text-center text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible dafe show" id="msg" role="alert">
+          {{ message | safe }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
   <div class="row align-content-center">
     <div class="col-12 col-md-4 offset-lg-1">
-      <img class="img-fluid" src="https://images.pexels.com/photos/10390457/pexels-photo-10390457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="..." />
+      <img class="img-fluid"
+        src="https://images.pexels.com/photos/10390457/pexels-photo-10390457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        alt="..." />
     </div>
 
     <form class="col-md-6 col-12 mt-2 ms-lg-5" method="post">
@@ -18,7 +33,7 @@
 
   </div>
   </form>
-  </div>
+</div>
 
 
 

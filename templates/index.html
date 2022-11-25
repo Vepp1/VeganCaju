@@ -4,13 +4,27 @@
 
 <!-- Header-->
 <header class="masthead text-center text-white background">
-        <div class="masthead-content">
-            <div class="container px-5">
-                <h1 class="masthead-heading mb-0 black-border">Vegan Truffles</h1>
-                <h2 class="masthead-subheading mb-0 black-border">Made with all love and no harming</h2>
-                <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible dafe show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>
+                {% endfor %}
             </div>
         </div>
+    </div>
+    <div class="masthead-content">
+        <div class="container px-5">
+            <h1 class="masthead-heading mb-0 black-border">Vegan Truffles</h1>
+            <h2 class="masthead-subheading mb-0 black-border">Made with all love and no harming</h2>
+            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Learn More</a>
+        </div>
+    </div>
 </header>
 <!-- Content section 1-->
 <section id="scroll">
