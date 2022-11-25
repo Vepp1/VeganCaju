@@ -22,7 +22,7 @@ class Order(models.Model):
     size = models.IntegerField(choices=SIZES, default=0)
     costumer = models.CharField(max_length=80)
     created_on = models.DateTimeField(auto_now_add=True)
-    pick_up = models.DateTimeField(validators=[validate_date])
+    pick_up = models.DateField(validators=[validate_date])
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
