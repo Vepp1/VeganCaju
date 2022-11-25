@@ -81,8 +81,9 @@ class EditOrder(LoginRequiredMixin, GetOrder, View):
                 order.pick_up = order_form.cleaned_data['pick_up']
                 orderform = order_form.save(commit=False)
                 orderform.save()
+                order.save()
+                messages.add_message(request, messages.SUCCESS, "Order Updated!")
                 return redirect('my_orders')
-                messages.add_message(request, messages.SUCCES, "Order Updated!")
             else:
                 order_form = OrderForm()
                 messages.add_message(request, messages.ERROR, "Please, choose at date at least 3 days from now")
