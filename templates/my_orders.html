@@ -3,6 +3,7 @@
 
 {% block content %}
 <header class="masthead text-center text-white">
+
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
@@ -16,14 +17,17 @@
       </div>
     </div>
   </div>
+
   <div class="bg"></div>
   <div class="bg bg2"></div>
   <div class="bg bg3"></div>
+
   <div class="row">
-   {% if order_list %} 
+    {% if order_list %}
     {% for order in order_list %}
     <div class="card text-dark offset-lg-1 offset-2 col-4 mt-2 mt-lg-0 mb-lg-2" style="width: 18rem;">
       <div class="card-body">
+
         <h5 class="card-title">Order ID: {{ order.id }}</h5>
         <p class="card-text"><strong>Size:</strong> {{ order.get_size_display }}</p>
         <p class="card-text"><strong>Flavor:</strong>: {{ order.get_flavor_display }}</p>
@@ -31,9 +35,11 @@
         <p class="card-text"><strong>Pick-up on:</strong> {{ order.pick_up }}</p>
         {% if order.status == 0 %}
         <p class="card-text"><strong>Status:</strong> {{ order.get_status_display }}</p>
+
         <a href="{% url 'edit_order' order.id %}" class="btn btn-warning">Edit Order</a>
         <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{ order.id }}">Delete
           order</a>
+
           {% elif order.status == 1 %}
           <strong class="btn-success">Order Approved!</strong>
           {% else %}
@@ -88,8 +94,7 @@
       <a href="{% url 'make_order' %}" class="btn btn-primary mt-5 col-8 col-md-3">Order Now!</a>
     </div>
   </div>
-  
-{% endif %}
+  {% endif %}
 </header>
 
 <!-- Modal -->
