@@ -11,7 +11,7 @@ FLAVORS = ((0, 'Chocolate'), (1, 'Cocconut'), (2, 'White Chocolate'), (3, 'Pista
 SIZES = ((0, 'S - 4 un. / $5,00'), (1, 'M - 6 un. / $7,00'), (2, 'L - 10 un. / $10,00'))
 
 def validate_date(value):
-    if value < (timezone.now()+timedelta(days=4)):
+    if value < (timezone.now()+timedelta(days=4)).date():
         raise ValidationError(
             ('value is not a future datetime'),
             params={'value': value},
