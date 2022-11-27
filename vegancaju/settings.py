@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.sites',
+    'django.contrib.staticfiles',
+    'cloudinary,'
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django.contrib.staticfiles',
     'crispy_forms',
     'order',
 ]
