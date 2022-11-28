@@ -81,15 +81,15 @@ VeganCaju is an online store for vegan truffles store. The main goal of the comp
 ![Delete Order](static/assets/img/test-2.png)
 
 ### Edit or delete an order from another user.
- - 2 accounts are needed. In on account, make an order and save its id. Logout and login into a new account. Then, go to the address bar and type after the site's url: edit_order/order id from the other account - to try to edit. delete_order/order id from the other account - to try to delete.
- - Result: An error query page will be displayed, because a validation method was added to views.py, to allow user to only edit or modify orders that were created by the current logged user's username.
+ - 2 accounts are needed. In on account, make an order and save its id. Logout and login into a new account. Then, go to the address bar and type after the site's URL: edit_order/order id from the other account - to try to edit. delete_order/order id from the other account - to try to delete.
+ - Result: An error query page will be displayed, because a validation method was added to views.py, to allow users to only edit or modify orders that were created by the current logged user's username.
 
  ![Delete Order](static/assets/img/test-3.png)
 
  ### Edit or delete an order that is not on "Waiting for Approval" status.
   - After logging into an account with approved orders, go to the address bar and type:
   edit_order/your approved order id/ - to try to edit. delete_order/your approved order id/ - to try to delete.
-  - Result: User are redirected to the 404 page. This was made using an if Clause on the edit and delete order class. The if clause checks the order status, and if it is not 0 ('waiting for approval'), it redirects users to the 404 page.
+  - Result: Users are redirected to the 404 page. This was made using an if Clause on the edit and delete order class. The if clause checks the order status, and if it is not 0 ('waiting for approval'), it redirects users to the 404 page.
 
 ![Delete Order](static/assets/img/test-4.png)
 
@@ -98,12 +98,35 @@ VeganCaju is an online store for vegan truffles store. The main goal of the comp
 
 - HTML
   - No relevant errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fvegancaju.herokuapp.com%2F), only info and warning on files created automatically.
+
+![HTML Validator](static/assets/img/validator-1.png)
+
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvegancaju.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+![CSS Validator](static/assets/img/validator-2.png)
+
 - JS
-  - No errors were found when passing through the official.
+  - No errors were found when passing through the official [JSHint](https://jshint.com/) validator only warnings on the constants of maps API.
+
+![JS Validator](static/assets/img/validator-3.png)
+
 - PEP8
-  - No errors were found when passing through the official.
+  - All .py files were corrected on [PythonChecker](https://www.pythonchecker.com/), and follow pep8 rules.
+
+![PEP8 Validator](static/assets/img/validator-4.png)
+
+- Color Contrast
+  - The website's color contrast was validated through [a11y](https://color.a11y.com/Contrast/), and presented no issues.
+
+![Color Contrast Validator](static/assets/img/validator-5.png)
+
+- Accessibility 
+ - The website's accessibility was validated has a 95 score and presents no critical issues. [AccessibilityChecker](https://www.accessibilitychecker.org/audit/?website=https%3A%2F%2F8000-vepp1-vegancaju-sjeqvu5d9zs.ws-eu77.gitpod.io%2F&flag=us)
+
+
+![Acessibility Validator](static/assets/img/validator-6.png)
+
 
 ### Unfixed Bugs
 
