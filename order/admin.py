@@ -8,4 +8,3 @@ class OrderAdmin(SummernoteModelAdmin):
     list_filter = ('status', 'created_on')
     list_display = ('size', 'flavor', 'status', 'created_on', 'pick_up')
     search_fields = ['size', 'created_on', 'id']
-    summernote_fields = ('pick_up')
