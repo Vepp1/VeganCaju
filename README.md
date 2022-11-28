@@ -1,6 +1,6 @@
 # VeganCaju
 
-VeganCaju is an online store for vegan truffles store. The main goal of the company is to provide a harmless and tasty solution to vegans and those who are trying to adopt this philosophy. The target users are between 17-40 years old, which is the average age of more than 50% of vegans. The website consists of an application that allows users to choose between different box sizes and truffles flavors, and a pick-up date (since the company yet does not provide delivery) after an account was created. After the order was created on the ORDER page, users can check and modify orders that are not yet approved on the MY ORDERS page. 
+VeganCaju is an online vegan truffles store. The main goal of the company is to provide a harmless and tasty solution to vegans and those who are trying to adopt this philosophy. The target users are between 17-40 years old, which is the average age of more than 50% of vegans. The website consists of an application that allows users to choose between different box sizes and truffles flavors, and a pick-up date (since the company yet does not provide delivery) after an account was created. After the order was created on the ORDER page, users can check and modify orders that are not yet approved on the MY ORDERS page. 
 
 ----
 
